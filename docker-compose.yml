@@ -1,0 +1,41 @@
+version: '3.8'
+services:
+  db_users:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: users_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - users_data:/var/lib/postgresql/data
+
+  db_game:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: game_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - game_data:/var/lib/postgresql/data
+
+  backend:
+    build: ./backend
+    depends_on:
+      - db_users
+      - db_game
+    environment:
+      DATABASE_URL: postgres://postgres:postgres@db_users:5432/users_db
+      GAME_DATABASE_URL: postgres://postgres:postgres@db_game:5432/game_db
+    ports:
+      - "8000:8000"
+
+ # frontend:
+ #   build: ./frontend
+ #   ports:
+ #     - "5173:5173"
+ #   depends_on:
+ #     - backend
+
+volumes:
+  users_data:
+  game_data:
