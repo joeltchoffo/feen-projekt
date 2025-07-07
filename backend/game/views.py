@@ -60,3 +60,7 @@ class MissionEvaluateView(APIView):
 
         result = [dict(zip(columns, row)) for row in rows]
         return Response({"result": result})
+
+class HealthCheckView(APIView):
+    def get(self, request):
+        return Response({"status": "ok"}, status=status.HTTP_200_OK)

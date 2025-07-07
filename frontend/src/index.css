@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Optional: eigene Erweiterung 
+body {
+  @apply bg-gradient-to-b from-[#0d0c1d] via-[#1f1b2e] to-[#1f1b2e] text-white;
+  @apply font-serif tracking-wide;
+}
+*/
