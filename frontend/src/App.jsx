@@ -11,6 +11,7 @@ import ShopPage from "./pages/ShopPage";
 import ProgressPage from "./pages/ProgressPage";
 import NavBar from "./components/NavBar";
 import HealthCheckPage from "./pages/HealthCheckPage";
+import LandingPage from "./pages/LandingPage";
 
 export default function App() {
   return (
@@ -19,22 +20,22 @@ export default function App() {
         <Router>
             <NavBar />
               <Routes>
+                <Route path="/" element={<LandingPage />} />
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/register" element={<RegisterPage />} />
 
-                <Route element={<PrivateRoute />}>
                 <Route path="/play"    element={<ModeSelectPage />} />
                 <Route path="/levels"  element={<LevelSelectPage />} />
                 <Route path="/mission/:level/:mission" element={<MissionPage />} />
                 <Route path="/shop"    element={<ShopPage />} />
                 <Route path="/progress" element={<ProgressPage />} />
                 <Route path="/health" element={<HealthCheckPage />} />
+
+                <Route element={<PrivateRoute />}>
                 </Route>
 
               {/* Fallback */}
               <Route path="*" element={<Navigate to="/login" replace />} />
-
-                <Route path="*" element={<Navigate to="/login" replace />} />
               </Routes>
         </Router>
       </GameProvider>

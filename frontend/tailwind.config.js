@@ -8,4 +8,11 @@ module.exports = {
     extend: {},
   },
   plugins: [],
+
+  // tailwind.config.js
+extend: {
+  fontFamily: {
+    fantasy: ['"Cinzel Decorative"', 'serif'],
+  }
+}
 };

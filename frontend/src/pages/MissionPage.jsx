@@ -19,7 +19,8 @@ export default function MissionPage() {
     setFeedback("");
 
     try {
-      const response = await fetch(`http://localhost:8000/api/mission/${level}/${mission}/`, {
+      //const response = await fetch(`http://localhost:8000/api/mission/${level}/${mission}/`, {
+      const response = await fetch(import.meta.env.VITE_API_BASE_URL + `/mission/${level}/${mission}/`,{
         method: "POST",
         headers: {
           "Content-Type": "application/json",

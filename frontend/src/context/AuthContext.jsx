@@ -10,19 +10,19 @@ export const AuthProvider = ({ children }) => {
 
   const login = (token) => {
     setAuthToken(token);
-    localStorage.setItem("token", token);
+    localStorage.setItem("authToken", token);
     // Optional: JWT dekodieren und User setzen
     // const decoded = jwtDecode(token); setUser(decoded);
   };
 
   const logout = () => {
     setAuthToken(null);
-    localStorage.removeItem("token");
+    localStorage.removeItem("authToken");
     setUser(null);
   };
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("authToken");
     if (token) {
       setAuthToken(token);
       // Optional: auch hier User dekodieren

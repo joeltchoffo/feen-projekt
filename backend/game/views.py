@@ -3,6 +3,7 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from .models import Mission  # dein ORM-Modell
 from .models import UserProgress  # unser neues Modell
+from rest_framework import status
 
 
 class ProgressView(APIView):

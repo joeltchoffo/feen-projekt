@@ -17,7 +17,7 @@ export default function ShopPage() {
       return;
     }
     if (points >= scroll.price) {
-      buyScroll(scroll.name);
+      buyScroll(scroll.name, scroll.price);
       alert(`🎉 Du hast "${scroll.name}" erfolgreich gekauft!`);
     } else {
       alert("💸 Nicht genug magische Punkte.");

@@ -22,6 +22,13 @@ export const GameProvider = ({ children }) => {
       setScrolls((prev) => [...prev, scroll]);
     }
   };
+  const buyScroll = (scrollName, price) => {
+  if (!scrolls.includes(scrollName)) {
+    setPoints((p) => p - price); // falls du Preis mitgibst
+    setScrolls((prev) => [...prev, scrollName]);
+  }
+};
+
 
   const markMissionCompleted = (missionId) => {
     if (!completedMissions.includes(missionId)) {
@@ -40,6 +47,7 @@ export const GameProvider = ({ children }) => {
         earnPoints,
         addScroll,
         markMissionCompleted,
+        buyScroll, // Funktion zum Scroll kaufen
       }}
     >
       {children}

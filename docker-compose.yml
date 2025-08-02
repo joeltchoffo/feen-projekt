@@ -8,6 +8,8 @@ services:
       POSTGRES_PASSWORD: postgres
     volumes:
       - users_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
 
   db_game:
     image: postgres:15
@@ -17,6 +19,8 @@ services:
       POSTGRES_PASSWORD: postgres
     volumes:
       - game_data:/var/lib/postgresql/data
+    ports:
+      - "5434:5432"
 
   backend:
     build: ./backend
@@ -28,6 +32,8 @@ services:
       GAME_DATABASE_URL: postgres://postgres:postgres@db_game:5432/game_db
     ports:
       - "8000:8000"
+    env_file:
+      - .env
 
  # frontend:
  #   build: ./frontend
