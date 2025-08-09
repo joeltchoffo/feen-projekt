@@ -21,6 +21,8 @@ export default function NavBar() {
             <Link to="/shop" className="hover:underline">Shop</Link>
             <Link to="/progress" className="hover:underline">Fortschritt</Link>
             <Link to="/health" className="hover:underline">Health</Link>
+            <Link to="/profile">Profil</Link>
+
           </>
         ) : (
           <>
